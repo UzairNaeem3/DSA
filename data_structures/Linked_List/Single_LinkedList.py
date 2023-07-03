@@ -75,7 +75,7 @@ class LinkedList:
     
     def remove_at(self, index):
         if self.head is None:
-            raise Exception("Linked List is empty.")
+            return
         
         if index<0 or index >= self.get_length():
             raise Exception("Invalid Index")
@@ -155,15 +155,20 @@ class LinkedList:
             
             
 if __name__ == "__main__":
+    
     ll = LinkedList()
-    
-    ll.insert_values([2,4,6,8,10])
+    ll.insert_values(["banana","mango","grapes","orange"])
     ll.display()
-   
-    ll.insert_after_value(2,3)
+    ll.insert_after_value("mango","apple") # insert apple after mango
     ll.display()
-    
-    ll.remove_by_value(3)
+    ll.remove_by_value("orange") # remove orange from linked list
+    ll.display()
+    ll.remove_by_value("figs")
+    ll.display()
+    ll.remove_by_value("banana")
+    ll.remove_by_value("mango")
+    ll.remove_by_value("apple")
+    ll.remove_by_value("grapes")
     ll.display()
     
         
