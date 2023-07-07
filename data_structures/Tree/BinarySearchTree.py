@@ -100,7 +100,7 @@ class BinarySearchTreeNode:
     
     def delete(self, value):
         if self.data is None:
-            return "The Binary Search Tree in Empty."
+            return "The Binary Search Tree is Empty."
         elif value < self.data:
             if self.left:
                 self.left = self.left.delete(value)
