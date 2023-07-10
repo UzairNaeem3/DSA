@@ -6,21 +6,16 @@ class Node:
 
 class SpecialLinkedList:
     def __init__(self, arr):
-        root_node = Node(arr[0])
-        self.head = root_node
-        
-        
-        current_node = self.head
-        for i in range(1, len(arr)):
-            new_node = Node(arr[i])
-            current_node.next = new_node
-            current_node = new_node
+        nodes = [Node(val) for val in arr]
+        for i in range(len(nodes) - 1):
+            nodes[i].next = nodes[i+1] 
+        self.head = nodes[0]
             
-    def printLL(self, root):
-        if root is None:
+    def __str__(self):
+        if self.head is None:
             return "Linked List is empty."
         else:
-            current_node = root
+            current_node = self.head
             output = ''
             while current_node:
                 suffix = ''
@@ -28,9 +23,7 @@ class SpecialLinkedList:
                     suffix = '-->'  
                 output += str(current_node.value) + suffix
                 current_node = current_node.next
-            
-            print(output)
-            return
+            return output
         
     def insert(self, root, data):
         new_node = Node(data)
@@ -64,11 +57,15 @@ class SpecialLinkedList:
 
 if __name__ == "__main__":
     data_list = ["r","e","v","e","r","s","e","d"]
+    
+    # data_list = [1,2,3]
     ll = SpecialLinkedList(data_list)
-    ll.printLL(ll.head)
+    print(ll)
     
     ll.insert(ll.head, 10)
-    ll.printLL(ll.head)
+    print(ll)
     
     ll.reverse(ll.head)
-    ll.printLL(ll.head)
+    print(ll)
+    
+    
