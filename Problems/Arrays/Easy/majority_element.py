@@ -8,7 +8,7 @@ def majority_element(nums):
             freq[num] = 1
     
     for key, value in freq.items():
-        if value > len(nums)/2:
+        if value > len(nums)//2:
             return key
 
 """
