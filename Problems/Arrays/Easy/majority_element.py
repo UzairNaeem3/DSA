@@ -11,6 +11,21 @@ def majority_element(nums):
         if value > len(nums)/2:
             return key
 
+"""
+Boyer-Moore majority vote algorithm:
+
+The algorithm works by maintaining a candidate element and a counter, which are initialized to any element and
+zero respectively. Then, it processes the elements of the sequence one by one, comparing them to the candidate
+element. If they are equal, the counter is incremented; if they are different, the counter is decremented. 
+If the counter becomes zero, the current element becomes the new candidate and the counter is reset to one. 
+At the end of this process, if the sequence has a majority element, it will be the same as the candidate element.
+
+However, the algorithm does not guarantee that the candidate element is actually a majority element, as it may
+return any element if there is no majority. Therefore, a second pass over the sequence is needed to verify 
+that the candidate element occurs more than half of the time. This verification step can be done in 
+linear time and constant space as well.
+"""
+
 def majority_element_Boyer_Moore(nums):
     # initialize the candidate and the counter
     candidate = None
